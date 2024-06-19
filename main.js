@@ -1,5 +1,8 @@
-function preload() {
+noseX=0;
+noseY=0;
 
+function preload() {
+    clownNose = loadImage('https://i.postimg.cc/RV6T6P7k/image.png');
 }
 
 function setup() {
@@ -9,7 +12,7 @@ function setup() {
     video.size(300,300);
     video.hide();
 
-    poseNet = ml.poseNet(video, modelLoaded);
+    poseNet = ml5.poseNet(video, modelLoaded);
     poseNet.on('pose', gotPoses);
 }
 
@@ -17,8 +20,9 @@ function modelLoaded() {
     console.log('PoseNet Foi Inicializado');
 }
 
-function draw {
+function draw() {
     image(video, 0, 0, 300, 300);
+    image(clownNose, noseX, noseY, 30, 30);
 }
 
 function takeSnapshot(){
